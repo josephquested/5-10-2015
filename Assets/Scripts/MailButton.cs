@@ -7,7 +7,6 @@ public class MailButton : Clickable {
 
 	public override void Click ()
 	{
-		print("clicked the mail button");
-		// mailScreen.SetActive(true);
+		mailScreen.SetActive(true);
 	}
 }
