@@ -25,5 +25,6 @@ public class SearchButton : Clickable {
 			Quaternion deltaRotation = Quaternion.Euler(rotation * Time.deltaTime * 10);
 			rb.MoveRotation(rb.rotation * deltaRotation);
 		}
+		Destroy(gameObject);
 	}
 }

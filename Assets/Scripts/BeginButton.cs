@@ -11,6 +11,7 @@ public class BeginButton : Clickable {
 	{
 		if (!isOpen)
 		{
+			GetComponent<AudioSource>().Play();
 			beginBar.SetActive(true);
 			isOpen = true;
 		}
