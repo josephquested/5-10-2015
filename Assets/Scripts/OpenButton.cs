@@ -7,6 +7,10 @@ public class OpenButton : Clickable {
 
 	public override void Click ()
 	{
+		if (GetComponent<AudioSource>() != null)
+		{
+			GetComponent<AudioSource>().Play();
+		}
 		screen.SetActive(true);
 	}
 }
