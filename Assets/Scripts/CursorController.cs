@@ -2,12 +2,10 @@ using UnityEngine;
 using System.Collections;
 
 public class CursorController : MonoBehaviour {
-	// [SerializeField] ComputerController computerController;
-	// [SerializeField] GameObject activeFolder;
-	// [SerializeField] FolderController folderController;
-	public Clickable clickable;
  	public float speed = 1.0f;
  	public bool canMove;
+
+	Clickable clickable;
 
 	void Start ()
 	{
@@ -26,13 +24,6 @@ public class CursorController : MonoBehaviour {
 		{
 			clickable.Click();
 		}
-	}
-
-	public void DoubleClick ()
-	{
-		// if (folderController) {
-		// 	folderController.DoubleClick();
-		// }
 	}
 
 	void ControlMouseMovement () {
