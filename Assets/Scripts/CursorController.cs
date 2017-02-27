@@ -5,8 +5,9 @@ public class CursorController : MonoBehaviour {
 	// [SerializeField] ComputerController computerController;
 	// [SerializeField] GameObject activeFolder;
 	// [SerializeField] FolderController folderController;
-	[SerializeField] float speed = 1.0f;
-	[SerializeField] bool canMove;
+	public Clickable clickable;
+ 	public float speed = 1.0f;
+ 	public bool canMove;
 
 	void Start ()
 	{
@@ -16,14 +17,15 @@ public class CursorController : MonoBehaviour {
 	void Update ()
 	{
 		ControlMouseMovement();
+		CheckForClick();
   }
 
-	public void Click ()
+	public void CheckForClick ()
 	{
-		// if (folderController)
-		// {
-		// 	folderController.Click();
-		// }
+		if (Input.GetButtonDown("Fire1") && clickable != null)
+		{
+			clickable.Click();
+		}
 	}
 
 	public void DoubleClick ()
@@ -44,15 +46,15 @@ public class CursorController : MonoBehaviour {
 	{
 		if (collider.GetComponent<Clickable>() != null)
 		{
-			collider.GetComponent<Clickable>().Click();
+			clickable = collider.GetComponent<Clickable>();
 		}
 	}
 
 	void OnTriggerExit (Collider collider)
 	{
-		// if (collider.CompareTag("Folder")) {
-		// 	activeFolder = null;
-		// 	folderController = null;
-		// }
+		if (collider.GetComponent<Clickable>() != null)
+		{
+			clickable = null;
+		}
 	}
 }
