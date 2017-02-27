@@ -10,7 +10,7 @@ public class SearchButton : Clickable {
 		GetComponent<AudioSource>().Play();
 		StartCoroutine(StartRotation());
 		Rigidbody rb = GetComponent<Rigidbody>();
-		Vector3 movement = new Vector3(-1, 2, 0);
+		Vector3 movement = new Vector3(-0.5f, 1, -0.5f);
 		rb.AddForce(movement * force);
 	}
 
