@@ -4,8 +4,21 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MineButton : Clickable {
+	public GameObject blownMineSprite;
+	public GameObject wallsScreen;
+	public GameObject brokenScreen;
+
 	public override void Click ()
 	{
-		print("boom");
+		blownMineSprite.SetActive(true);
+		StartCoroutine(ExplosionRoutine());
+	}
+
+	IEnumerator ExplosionRoutine ()
+	{
+		yield return new WaitForSeconds(2f);
+		wallsScreen.SetActive(false);
+		brokenScreen.SetActive(true);
+		GameObject.FindWithTag("Player").GetComponent<PlayerExplode>().Explode();
 	}
 }
