@@ -22,7 +22,7 @@ public class ExplosionRinging : MonoBehaviour {
 		yield return new WaitForSeconds(highTime);
 		while (ringAudio.volume > 0)
 		{
-			ringAudio.volume -= 0.15f;
+			ringAudio.volume -= 0.05f;
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
